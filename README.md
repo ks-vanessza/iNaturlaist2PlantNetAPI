@@ -1,4 +1,4 @@
-# iNaturlaist To Pl@ntNetAPI predicition
+# [iNaturalist](https://www.inaturalist.org/) To [Pl@ntNetAPI](https://my.plantnet.org/) prediction
 
 ## 1) Run `extract_inaturalist_img.py`  to get the img source
 To get prediction from Pl@ntAPI first we need the image link. 
@@ -12,7 +12,7 @@ https://www.inaturalist.org/observations/185168585
 https://www.inaturalist.org/observations/185168570
 https://www.inaturalist.org/observations/185168542
 ```
-*note: The CSV is loaded from `../Data_processing/df_inat.csv`*
+*note: The CSV is loaded from `../Data_processing/output_data/inat_url_ST.csv`*
 
 ## 2) Run `get_predicition.py` to get the predictions
 - Add your API key

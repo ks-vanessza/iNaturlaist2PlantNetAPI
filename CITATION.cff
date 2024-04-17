@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+title: iNaturalist To Pl@ntNet API Prediction
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Vanessza
+    family-names: Cseh-Koos
+    email: vak00013@students.stir.ac.uk
+abstract: >-
+  This project enables integration between iNaturalist and
+  Pl@ntNet API using Python. Automates fetching image links from
+  iNaturalist observations and submits them to Pl@ntNet API for
+  species identification, utilising their APIs. The project
+  is open-source under the MIT licence.
+keywords:
+  - iNaturalist
+  - Pl@ntNet API
+  - plant prediction
+  - plant species prediction
+  - Python
+license: MIT
+url: https://github.com/ks-vanessza/iNaturlaist2PlantNetAPI/
+
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
