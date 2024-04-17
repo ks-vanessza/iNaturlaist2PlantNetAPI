@@ -3,6 +3,8 @@ import pandas as pd
 import requests
 import ast
 
+from tqdm import tqdm
+
 # Constants
 API_KEY = "YOUR API KEY HERE"
 PROJECT = "k-northern-europe"
@@ -79,7 +81,7 @@ prediction_per_line = []
 one_line_prediction = []
 # Read the CSV file
 df = pd.read_csv('observation_images.csv')
-for index, row in df.iterrows():
+for index, row in tqdm(df.iterrows(), total=df.shape[0]):
     predictions_line_by_line, predictions_one_line = get_prediction(row)
     prediction_per_line.extend(predictions_line_by_line)
     one_line_prediction.extend(predictions_one_line)

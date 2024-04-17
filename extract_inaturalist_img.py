@@ -1,6 +1,7 @@
 import requests
 import pandas as pd
 import time
+from tqdm import tqdm
 """Retrieve image data from the iNaturalist API."""
 
 
@@ -31,16 +32,18 @@ def get_image_data(url):
     image_urls = [obs_photo['photo']['url'].replace('square', 'large') for obs_photo in
                   result.get('observation_photos', []) if 'photo' in obs_photo and 'url' in obs_photo['photo']]
 
-    return observation_id, api_endpoint, url, desc_id, image_urls
+    location = result.get('location', None)
+
+    return observation_id, api_endpoint, url, desc_id, image_urls, location
 
 
 # Process and export data
 data = []
-df = pd.read_csv('../Data_processing/df_inat.csv', encoding='utf-8')
+df = pd.read_csv('../Data_processing/output_data/inat_url_ST.csv', encoding='utf-8')
 
-for index, row in df.iterrows():
-    id, api_endpoint, url, desc_id, image_urls = get_image_data(row['x'])
-    data.append({'Observation id': id, 'API': api_endpoint, 'URL': url, 'Desc': desc_id, 'Image': image_urls})
+for index, row in tqdm(df.iterrows(), total=df.shape[0]):
+    id, api_endpoint, url, desc_id, image_urls, location = get_image_data(row['x'])
+    data.append({'Observation id': id, 'API': api_endpoint, 'URL': url, 'Desc': desc_id, 'Image': image_urls, 'Location': location})
 
 df_result = pd.DataFrame(data)
 df_result.to_csv('observation_images.csv', index=False, encoding='utf-8')
